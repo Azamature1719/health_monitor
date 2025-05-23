@@ -1,0 +1,93 @@
+@startuml
+hide circle
+skinparam linetype ortho
+skinparam entity {
+  BackgroundColor White
+  BorderColor Black
+}
+
+title "Модель данных веб-приложения"
+
+' Сущности
+
+entity "<b>Пациент</b>" as Patient {
+  *ИД Пациента : PK
+  --
+  ФИО
+  Дата рождения
+  Город проживания
+  Дополнительная информация
+}
+
+entity "<b>Врач</b>" as Doctor {
+  *ИД Врача : PK
+  --
+  ФИО
+  Место работы
+}
+
+entity "<b>Приём</b>" as Visit {
+  *ИД Приёма : PK
+  --
+  Дата и время
+  ИД Услуги : FK
+  ИД Врача : FK
+  ИД Пациента : FK
+  Статус приёма
+}
+
+entity "<b>Услуга</b>" as Service {
+  *ИД Услуги : PK
+  --
+  Наименование
+}
+
+entity "<b>Назначение</b>" as Assignment {
+  *ИД Назначения : PK
+  --
+  ИД Вида назначения : FK
+  Описание
+  Время выполнения
+  Длительность
+  ИД Приёма : FK
+  Статус назначения
+}
+
+entity "<b>Вид назначения</b>" as AssignmentType {
+  *ИД Вида назначения : PK
+  --
+  Наименование
+  Тип
+  Единица измерения
+}
+
+entity "<b>Показатель</b>" as Indicator {
+  *ИД Показателя : PK
+  --
+  ИД Назначения : FK
+  Значение
+  Дата и время исполнения
+  Статус показателя
+}
+
+' Связи с кратностями и красивыми подписями
+
+
+Patient ||--o{ Visit : "приходит на"
+Doctor ||--o{ Visit : "проводит"
+Visit ||--o{ Service : "оказывается на"
+Visit ||--o{ Assignment
+note on link
+**Назначения**  
+выписываются  
+на **Приёме**
+end note 
+Assignment ||--o{ AssignmentType : "соответствует"
+Assignment ||--o{ Indicator 
+note on link
+**Показатель**  
+создаётся по  
+**Назначению**
+end note
+
+@enduml

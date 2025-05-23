@@ -1,0 +1,2836 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/results/": {
+      "get": {
+        "tags": [
+          "Results"
+        ],
+        "summary": "Get All Results",
+        "operationId": "get_all_results_results__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ResultRead"
+                  },
+                  "type": "array",
+                  "title": "Response Get All Results Results  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Results"
+        ],
+        "summary": "Create Result",
+        "operationId": "create_result_results__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/results/{id}": {
+      "get": {
+        "tags": [
+          "Results"
+        ],
+        "summary": "Get Result",
+        "operationId": "get_result_results__id__get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get All Orders",
+        "operationId": "get_all_orders_orders__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/OrderRead"
+                  },
+                  "type": "array",
+                  "title": "Response Get All Orders Orders  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Create Order",
+        "operationId": "create_order_orders__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get Order",
+        "operationId": "get_order_orders__id__get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/by-patient/{patient_id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get Orders By Patient",
+        "operationId": "get_orders_by_patient_orders_by_patient__patient_id__get",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Patient Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderRead"
+                  },
+                  "title": "Response Get Orders By Patient Orders By Patient  Patient Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/by-doctor/{doctor_id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get Orders By Doctor",
+        "operationId": "get_orders_by_doctor_orders_by_doctor__doctor_id__get",
+        "parameters": [
+          {
+            "name": "doctor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Doctor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderRead"
+                  },
+                  "title": "Response Get Orders By Doctor Orders By Doctor  Doctor Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/doctors/": {
+      "post": {
+        "tags": [
+          "Doctors"
+        ],
+        "summary": "Create Doctor",
+        "operationId": "create_doctor_doctors__post",
+        "parameters": [
+          {
+            "name": "speciality_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Speciality Ids"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_doctor_doctors__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Doctors"
+        ],
+        "summary": "Get All Doctors",
+        "operationId": "get_all_doctors_doctors__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorRead"
+                  },
+                  "title": "Response Get All Doctors Doctors  Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/doctors/{doctor_id}": {
+      "put": {
+        "tags": [
+          "Doctors"
+        ],
+        "summary": "Update Doctor",
+        "operationId": "update_doctor_doctors__doctor_id__put",
+        "parameters": [
+          {
+            "name": "doctor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Doctor Id"
+            }
+          },
+          {
+            "name": "speciality_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Speciality Ids"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_update_doctor_doctors__doctor_id__put"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Doctors"
+        ],
+        "summary": "Delete Doctor",
+        "operationId": "delete_doctor_doctors__doctor_id__delete",
+        "parameters": [
+          {
+            "name": "doctor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Doctor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Doctors"
+        ],
+        "summary": "Get Doctor",
+        "operationId": "get_doctor_doctors__doctor_id__get",
+        "parameters": [
+          {
+            "name": "doctor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Doctor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/doctors/{doctor_id}/restore": {
+      "put": {
+        "tags": [
+          "Doctors"
+        ],
+        "summary": "Restore Doctor",
+        "operationId": "restore_doctor_doctors__doctor_id__restore_put",
+        "parameters": [
+          {
+            "name": "doctor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Doctor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/doctors/{doctor_id}/specialities": {
+      "post": {
+        "tags": [
+          "Doctors"
+        ],
+        "summary": "Set Doctor Specialities",
+        "operationId": "set_doctor_specialities_doctors__doctor_id__specialities_post",
+        "parameters": [
+          {
+            "name": "doctor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Doctor Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "title": "Speciality Ids"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/doctors/by-speciality/{speciality_id}": {
+      "get": {
+        "tags": [
+          "Doctors"
+        ],
+        "summary": "Get Doctors By Speciality",
+        "operationId": "get_doctors_by_speciality_doctors_by_speciality__speciality_id__get",
+        "parameters": [
+          {
+            "name": "speciality_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Speciality Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorRead"
+                  },
+                  "title": "Response Get Doctors By Speciality Doctors By Speciality  Speciality Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Get All Patients",
+        "operationId": "get_all_patients_patients__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PatientRead"
+                  },
+                  "type": "array",
+                  "title": "Response Get All Patients Patients  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Create Patient",
+        "operationId": "create_patient_patients__post",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_patient_patients__post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}": {
+      "put": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Update Patient",
+        "operationId": "update_patient_patients__patient_id__put",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Patient Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_update_patient_patients__patient_id__put"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Delete Patient",
+        "operationId": "delete_patient_patients__patient_id__delete",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Patient Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Get Patient",
+        "operationId": "get_patient_patients__patient_id__get",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Patient Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/restore": {
+      "put": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Restore Patient",
+        "operationId": "restore_patient_patients__patient_id__restore_put",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Patient Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/": {
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Get All Services",
+        "operationId": "get_all_services_services__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceRead"
+                  },
+                  "type": "array",
+                  "title": "Response Get All Services Services  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Create Service",
+        "operationId": "create_service_services__post",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_service_services__post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/{service_id}": {
+      "put": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Update Service",
+        "operationId": "update_service_services__service_id__put",
+        "parameters": [
+          {
+            "name": "service_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Service Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_update_service_services__service_id__put"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Delete Service",
+        "operationId": "delete_service_services__service_id__delete",
+        "parameters": [
+          {
+            "name": "service_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Service Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Get Service",
+        "operationId": "get_service_services__service_id__get",
+        "parameters": [
+          {
+            "name": "service_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Service Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/specialities/": {
+      "get": {
+        "tags": [
+          "Specialities"
+        ],
+        "summary": "Get All Specialities",
+        "operationId": "get_all_specialities_specialities__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SpecialityRead"
+                  },
+                  "type": "array",
+                  "title": "Response Get All Specialities Specialities  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Specialities"
+        ],
+        "summary": "Create Speciality",
+        "operationId": "create_speciality_specialities__post",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_speciality_specialities__post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpecialityRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/specialities/{speciality_id}": {
+      "put": {
+        "tags": [
+          "Specialities"
+        ],
+        "summary": "Update Speciality",
+        "operationId": "update_speciality_specialities__speciality_id__put",
+        "parameters": [
+          {
+            "name": "speciality_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Speciality Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_update_speciality_specialities__speciality_id__put"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpecialityRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Specialities"
+        ],
+        "summary": "Delete Speciality",
+        "operationId": "delete_speciality_specialities__speciality_id__delete",
+        "parameters": [
+          {
+            "name": "speciality_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Speciality Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Specialities"
+        ],
+        "summary": "Get Speciality",
+        "operationId": "get_speciality_specialities__speciality_id__get",
+        "parameters": [
+          {
+            "name": "speciality_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Speciality Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpecialityRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appointments/": {
+      "get": {
+        "tags": [
+          "Appointments"
+        ],
+        "summary": "Get All Appointments",
+        "operationId": "get_all_appointments_appointments__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/AppointmentRead"
+                  },
+                  "type": "array",
+                  "title": "Response Get All Appointments Appointments  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Appointments"
+        ],
+        "summary": "Create Appointment",
+        "operationId": "create_appointment_appointments__post",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_appointment_appointments__post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppointmentRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appointments/{appointment_id}": {
+      "put": {
+        "tags": [
+          "Appointments"
+        ],
+        "summary": "Update Appointment",
+        "operationId": "update_appointment_appointments__appointment_id__put",
+        "parameters": [
+          {
+            "name": "appointment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Appointment Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_update_appointment_appointments__appointment_id__put"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppointmentRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Appointments"
+        ],
+        "summary": "Delete Appointment",
+        "operationId": "delete_appointment_appointments__appointment_id__delete",
+        "parameters": [
+          {
+            "name": "appointment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Appointment Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Appointments"
+        ],
+        "summary": "Get Appointment",
+        "operationId": "get_appointment_appointments__appointment_id__get",
+        "parameters": [
+          {
+            "name": "appointment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Appointment Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppointmentRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appointments/doctor/{doctor_id}": {
+      "get": {
+        "tags": [
+          "Appointments"
+        ],
+        "summary": "Get Appointments By Doctor",
+        "operationId": "get_appointments_by_doctor_appointments_doctor__doctor_id__get",
+        "parameters": [
+          {
+            "name": "doctor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Doctor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppointmentRead"
+                  },
+                  "title": "Response Get Appointments By Doctor Appointments Doctor  Doctor Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appointments/patient/{patient_id}": {
+      "get": {
+        "tags": [
+          "Appointments"
+        ],
+        "summary": "Get Appointments By Patient",
+        "operationId": "get_appointments_by_patient_appointments_patient__patient_id__get",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Patient Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppointmentRead"
+                  },
+                  "title": "Response Get Appointments By Patient Appointments Patient  Patient Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/devices/register": {
+      "post": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Register Device",
+        "operationId": "register_device_api_devices_register_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceRegistrationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/devices/activate": {
+      "post": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Activate Device",
+        "operationId": "activate_device_api_devices_activate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceActivationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/devices/{device_id}/status": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Check Activation Status",
+        "operationId": "check_activation_status_api_devices__device_id__status_get",
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Device Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/devices/auth/login": {
+      "post": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Login",
+        "operationId": "login_api_devices_auth_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceAuthRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/predictions/{patient_id}": {
+      "post": {
+        "tags": [
+          "Predictions"
+        ],
+        "summary": "Predict Hypertension",
+        "description": "Получает прогноз вероятности гипертензии на основе результатов измерений\nза указанное количество дней",
+        "operationId": "predict_hypertension_api_predictions__patient_id__post",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Patient Id"
+            }
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Days"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/predictions/{patient_id}/latest": {
+      "get": {
+        "tags": [
+          "Predictions"
+        ],
+        "summary": "Get Latest Prediction",
+        "description": "Получает последний прогноз для пациента",
+        "operationId": "get_latest_prediction_api_predictions__patient_id__latest_get",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Patient Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalyticsResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HypertensionPrediction"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "success",
+          "message"
+        ],
+        "title": "AnalyticsResponse"
+      },
+      "AppointmentRead": {
+        "properties": {
+          "appointment_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Appointment Date"
+          },
+          "appointment_time": {
+            "type": "string",
+            "format": "time",
+            "title": "Appointment Time"
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content"
+          },
+          "doctor_id": {
+            "type": "integer",
+            "title": "Doctor Id"
+          },
+          "patient_id": {
+            "type": "integer",
+            "title": "Patient Id"
+          },
+          "service_id": {
+            "type": "integer",
+            "title": "Service Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "appointment_date",
+          "appointment_time",
+          "doctor_id",
+          "patient_id",
+          "service_id",
+          "status",
+          "id"
+        ],
+        "title": "AppointmentRead"
+      },
+      "Body_create_appointment_appointments__post": {
+        "properties": {
+          "appointment_date": {
+            "type": "string",
+            "title": "Appointment Date"
+          },
+          "appointment_time": {
+            "type": "string",
+            "title": "Appointment Time"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
+          "doctor_id": {
+            "type": "integer",
+            "title": "Doctor Id"
+          },
+          "patient_id": {
+            "type": "integer",
+            "title": "Patient Id"
+          },
+          "service_id": {
+            "type": "integer",
+            "title": "Service Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "appointment_date",
+          "appointment_time",
+          "doctor_id",
+          "patient_id",
+          "service_id",
+          "status"
+        ],
+        "title": "Body_create_appointment_appointments__post"
+      },
+      "Body_create_doctor_doctors__post": {
+        "properties": {
+          "lastName": {
+            "type": "string",
+            "title": "Lastname"
+          },
+          "firstName": {
+            "type": "string",
+            "title": "Firstname"
+          },
+          "middleName": {
+            "type": "string",
+            "title": "Middlename"
+          },
+          "workplace": {
+            "type": "string",
+            "title": "Workplace"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lastName",
+          "firstName",
+          "middleName",
+          "workplace"
+        ],
+        "title": "Body_create_doctor_doctors__post"
+      },
+      "Body_create_patient_patients__post": {
+        "properties": {
+          "lastName": {
+            "type": "string",
+            "title": "Lastname"
+          },
+          "firstName": {
+            "type": "string",
+            "title": "Firstname"
+          },
+          "middleName": {
+            "type": "string",
+            "title": "Middlename"
+          },
+          "birthDate": {
+            "type": "string",
+            "title": "Birthdate"
+          },
+          "city": {
+            "type": "string",
+            "title": "City"
+          },
+          "additionalInfo": {
+            "type": "string",
+            "title": "Additionalinfo"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lastName",
+          "firstName",
+          "middleName",
+          "birthDate",
+          "city"
+        ],
+        "title": "Body_create_patient_patients__post"
+      },
+      "Body_create_service_services__post": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "Body_create_service_services__post"
+      },
+      "Body_create_speciality_specialities__post": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "Body_create_speciality_specialities__post"
+      },
+      "Body_update_appointment_appointments__appointment_id__put": {
+        "properties": {
+          "appointment_date": {
+            "type": "string",
+            "title": "Appointment Date"
+          },
+          "appointment_time": {
+            "type": "string",
+            "title": "Appointment Time"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
+          "doctor_id": {
+            "type": "integer",
+            "title": "Doctor Id"
+          },
+          "patient_id": {
+            "type": "integer",
+            "title": "Patient Id"
+          },
+          "service_id": {
+            "type": "integer",
+            "title": "Service Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "title": "Body_update_appointment_appointments__appointment_id__put"
+      },
+      "Body_update_doctor_doctors__doctor_id__put": {
+        "properties": {
+          "lastName": {
+            "type": "string",
+            "title": "Lastname"
+          },
+          "firstName": {
+            "type": "string",
+            "title": "Firstname"
+          },
+          "middleName": {
+            "type": "string",
+            "title": "Middlename"
+          },
+          "workplace": {
+            "type": "string",
+            "title": "Workplace"
+          }
+        },
+        "type": "object",
+        "title": "Body_update_doctor_doctors__doctor_id__put"
+      },
+      "Body_update_patient_patients__patient_id__put": {
+        "properties": {
+          "lastName": {
+            "type": "string",
+            "title": "Lastname"
+          },
+          "firstName": {
+            "type": "string",
+            "title": "Firstname"
+          },
+          "middleName": {
+            "type": "string",
+            "title": "Middlename"
+          },
+          "birthDate": {
+            "type": "string",
+            "title": "Birthdate"
+          },
+          "city": {
+            "type": "string",
+            "title": "City"
+          },
+          "additionalInfo": {
+            "type": "string",
+            "title": "Additionalinfo"
+          }
+        },
+        "type": "object",
+        "title": "Body_update_patient_patients__patient_id__put"
+      },
+      "Body_update_service_services__service_id__put": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "Body_update_service_services__service_id__put"
+      },
+      "Body_update_speciality_specialities__speciality_id__put": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "Body_update_speciality_specialities__speciality_id__put"
+      },
+      "DeviceActivationRequest": {
+        "properties": {
+          "activation_code": {
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6,
+            "title": "Activation Code"
+          },
+          "patient_id": {
+            "type": "integer",
+            "title": "Patient Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "activation_code",
+          "patient_id"
+        ],
+        "title": "DeviceActivationRequest"
+      },
+      "DeviceAuthRequest": {
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Device Id"
+          },
+          "access_token": {
+            "type": "string",
+            "title": "Access Token"
+          }
+        },
+        "type": "object",
+        "required": [
+          "device_id",
+          "access_token"
+        ],
+        "title": "DeviceAuthRequest"
+      },
+      "DeviceRegistrationRequest": {
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Device Id"
+          },
+          "device_model": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Device Model"
+          },
+          "device_type": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 1,
+            "title": "Device Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "device_id",
+          "device_model",
+          "device_type"
+        ],
+        "title": "DeviceRegistrationRequest"
+      },
+      "DeviceResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Data"
+          }
+        },
+        "type": "object",
+        "required": [
+          "success",
+          "message"
+        ],
+        "title": "DeviceResponse"
+      },
+      "DoctorRead": {
+        "properties": {
+          "lastName": {
+            "type": "string",
+            "title": "Lastname"
+          },
+          "firstName": {
+            "type": "string",
+            "title": "Firstname"
+          },
+          "middleName": {
+            "type": "string",
+            "title": "Middlename"
+          },
+          "workplace": {
+            "type": "string",
+            "title": "Workplace"
+          },
+          "speciality_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Speciality Ids"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "deleted": {
+            "type": "boolean",
+            "title": "Deleted"
+          },
+          "specialities": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/SpecialityRead"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Specialities"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lastName",
+          "firstName",
+          "middleName",
+          "workplace",
+          "id",
+          "deleted"
+        ],
+        "title": "DoctorRead"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HypertensionPrediction": {
+        "properties": {
+          "patient_id": {
+            "type": "integer",
+            "title": "Patient Id"
+          },
+          "probability": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Probability"
+          },
+          "predicted_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Predicted At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "patient_id",
+          "probability",
+          "predicted_at"
+        ],
+        "title": "HypertensionPrediction"
+      },
+      "OrderCreate": {
+        "properties": {
+          "typeName": {
+            "type": "string",
+            "title": "Typename"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Startdate"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Enddate"
+          },
+          "executionTimes": {
+            "items": {
+              "type": "string",
+              "format": "time"
+            },
+            "type": "array",
+            "title": "Executiontimes"
+          },
+          "patientId": {
+            "type": "integer",
+            "title": "Patientid"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "doctorId": {
+            "type": "integer",
+            "title": "Doctorid"
+          }
+        },
+        "type": "object",
+        "required": [
+          "typeName",
+          "title",
+          "unit",
+          "startDate",
+          "endDate",
+          "executionTimes",
+          "patientId",
+          "description",
+          "status",
+          "doctorId"
+        ],
+        "title": "OrderCreate"
+      },
+      "OrderRead": {
+        "properties": {
+          "typeName": {
+            "type": "string",
+            "title": "Typename"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Startdate"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Enddate"
+          },
+          "executionTimes": {
+            "items": {
+              "type": "string",
+              "format": "time"
+            },
+            "type": "array",
+            "title": "Executiontimes"
+          },
+          "patientId": {
+            "type": "integer",
+            "title": "Patientid"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "doctorId": {
+            "type": "integer",
+            "title": "Doctorid"
+          },
+          "orderId": {
+            "type": "integer",
+            "title": "Orderid"
+          },
+          "patient": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PatientRead"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "doctor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SimpleDoctorRead"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "typeName",
+          "title",
+          "unit",
+          "startDate",
+          "endDate",
+          "executionTimes",
+          "patientId",
+          "description",
+          "status",
+          "doctorId",
+          "orderId"
+        ],
+        "title": "OrderRead"
+      },
+      "PatientRead": {
+        "properties": {
+          "lastName": {
+            "type": "string",
+            "title": "Lastname"
+          },
+          "firstName": {
+            "type": "string",
+            "title": "Firstname"
+          },
+          "middleName": {
+            "type": "string",
+            "title": "Middlename"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Birthdate"
+          },
+          "city": {
+            "type": "string",
+            "title": "City"
+          },
+          "additionalInfo": {
+            "type": "string",
+            "title": "Additionalinfo"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "deleted": {
+            "type": "boolean",
+            "title": "Deleted"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lastName",
+          "firstName",
+          "middleName",
+          "birthDate",
+          "city",
+          "id",
+          "deleted"
+        ],
+        "title": "PatientRead"
+      },
+      "ResultCreate": {
+        "properties": {
+          "resultIdMobile": {
+            "type": "integer",
+            "title": "Resultidmobile",
+            "default": 1
+          },
+          "orderId": {
+            "type": "integer",
+            "title": "Orderid"
+          },
+          "patientId": {
+            "type": "integer",
+            "title": "Patientid"
+          },
+          "doctorId": {
+            "type": "integer",
+            "title": "Doctorid"
+          },
+          "typeName": {
+            "type": "string",
+            "title": "Typename"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Executiontime"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "orderId",
+          "patientId",
+          "doctorId",
+          "typeName",
+          "title",
+          "unit",
+          "executionTime",
+          "value",
+          "status"
+        ],
+        "title": "ResultCreate"
+      },
+      "ResultRead": {
+        "properties": {
+          "resultIdMobile": {
+            "type": "integer",
+            "title": "Resultidmobile",
+            "default": 1
+          },
+          "orderId": {
+            "type": "integer",
+            "title": "Orderid"
+          },
+          "patientId": {
+            "type": "integer",
+            "title": "Patientid"
+          },
+          "doctorId": {
+            "type": "integer",
+            "title": "Doctorid"
+          },
+          "typeName": {
+            "type": "string",
+            "title": "Typename"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "executionTime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Executiontime"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "orderId",
+          "patientId",
+          "doctorId",
+          "typeName",
+          "title",
+          "unit",
+          "executionTime",
+          "value",
+          "status",
+          "id"
+        ],
+        "title": "ResultRead"
+      },
+      "ServiceRead": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "id"
+        ],
+        "title": "ServiceRead"
+      },
+      "SimpleDoctorRead": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "lastName": {
+            "type": "string",
+            "title": "Lastname"
+          },
+          "firstName": {
+            "type": "string",
+            "title": "Firstname"
+          },
+          "middleName": {
+            "type": "string",
+            "title": "Middlename"
+          },
+          "workplace": {
+            "type": "string",
+            "title": "Workplace"
+          },
+          "deleted": {
+            "type": "boolean",
+            "title": "Deleted"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "lastName",
+          "firstName",
+          "middleName",
+          "workplace",
+          "deleted"
+        ],
+        "title": "SimpleDoctorRead"
+      },
+      "SpecialityRead": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "id"
+        ],
+        "title": "SpecialityRead"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

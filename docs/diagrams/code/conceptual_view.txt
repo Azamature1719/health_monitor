@@ -1,0 +1,33 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor #EFEFEF
+    BorderColor Black
+    BorderThickness 1
+    RoundCorner 15
+}
+
+actor "Носимое устройство\n(WearOS 3+)" as Wearable
+actor "Врач" as Doctor
+
+rectangle "Мобильное приложение\nдля пациента" as MobileApp
+
+rectangle "Бэкенд-сервис\n(приём и валидация данных)" as Backend
+
+rectangle "Веб-приложение\nдля врачей" as WebApp
+
+rectangle "Аналитический сервис\n(обнаружение аномалий,\nуведомления)" as Analytics
+
+Wearable --> MobileApp : Сенсорные данные\n(пульс, кислород, активность)
+MobileApp --> Backend : **Показатели**:\nавтоматический сбор
+MobileApp --> Backend : **Показатели**:\nручной ввод
+
+Backend --> WebApp : Исторические\nданные
+Backend --> Analytics : Показатели\nдля анализа
+
+WebApp --> Backend : Данные приёма\n**Назначения**
+
+Analytics --> WebApp : Результаты прогноза\nУведомления
+
+Doctor --> WebApp : Ведение карточки\nпациента\n(приёмы, назначения)
+
+@enduml

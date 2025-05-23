@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.p~
+
+
+# Virtual environment
+venv/
+env/
+.env
+ENV/
+.venv/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env files
+*.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# SQLite DB
+*.sqlite3
+*.db
+
+# Alembic
+alembic/versions/*.pyc
+alembic/versions/__pycache__/
+
+# Pydantic cache
+__pydantic__/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# VS Code debug
+*.code-workspace
+
+# FastAPI static/media (если используешь загрузку файлов)
+static/uploads/
+media/
+
+# Docker (если используется)
+*.pid
+*.bak
+docker-compose.override.yml
+
+# Others
+*.orig
